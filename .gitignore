@@ -17,3 +17,6 @@
 /tmp
 
 public/*
+app/angular2/node_modules/
+app/angular2/**/*.js*
+

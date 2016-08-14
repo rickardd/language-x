@@ -1,6 +1,9 @@
 class TranslationsController < ApplicationController
   before_action :set_translation, only: [:show, :edit, :update, :destroy]
 
+  before_filter :set_header, only: [:show]
+
+
   # GET /translations
   # GET /translations.json
   def index
@@ -66,6 +69,16 @@ class TranslationsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_translation
       @translation = Translation.find(params[:id])
+    end
+
+
+    # Allows cross origin requests.
+    # ToDo: remove once angular2 works on the same server as rails
+    def set_header
+      headers['Access-Control-Allow-Origin'] = '*'
+      headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
+      headers['Access-Control-Request-Method'] = '*'
+      headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
