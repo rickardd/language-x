@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
 
+  get 'scrores/update'
+
   root 'app#index'
 
   resources :translations
+
+ resources :score, only: [] do
+    collection do
+      resources :translations, controller: :scores
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

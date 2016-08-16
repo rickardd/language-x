@@ -1,5 +1,5 @@
 import {Component} from 'angular2/core'
-import {WordsComponent} from './words/words.component'
+import {WordsComponent} from './words/word.component'
 import {StatsComponent} from './stats/stats.component'
 
 

@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160811162846) do
+ActiveRecord::Schema.define(version: 20160814191227) do
+
+  create_table "scores", force: :cascade do |t|
+    t.integer  "bucket",         default: 0
+    t.integer  "step",           default: 0
+    t.integer  "translation_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "scores", ["translation_id"], name: "index_scores_on_translation_id"
 
   create_table "translations", force: :cascade do |t|
     t.string   "spanish"
